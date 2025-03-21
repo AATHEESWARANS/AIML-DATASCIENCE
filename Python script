@@ -1,0 +1,25 @@
+import aiml
+
+# Initialize the kernel (bot engine)
+kernel = aiml.Kernel()
+
+# Load AIML files
+kernel.learn("aiml_files/bot.aiml")
+
+# Greet the user
+print("Hello! I'm your AIML-based chatbot. Type 'bye' to exit.")
+
+while True:
+    # Get user input
+    user_input = input("You: ")
+
+    # If user types 'bye', exit the chat
+    if user_input.lower() == 'bye':
+        print("Goodbye! Have a nice day!")
+        break
+
+    # Get response from the bot
+    response = kernel.respond(user_input)
+
+    # Print the bot's response
+    print(f"Bot: {response}")
